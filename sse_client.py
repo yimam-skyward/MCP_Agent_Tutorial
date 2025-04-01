@@ -83,7 +83,7 @@ async def main():
         messages = []
         user_message = input("Input: ")
 
-        # create initial message
+        # Create initial message
         chat_prompt = "You are a helpful assistant, you have the ability to call tools to achieve user requests.\n\n"
         chat_prompt += "User request: " + user_message + "\n\n"
         messages.append({"role": "user", "content": chat_prompt}) # passing in as user message
@@ -92,6 +92,7 @@ async def main():
             if not user_message:
                 continue
 
+            # Generate a response from the User Message
             llm_response = chat.messages.create(
                 model=model_name,
                 max_tokens=2048,
@@ -102,12 +103,16 @@ async def main():
             print(f"LLM Response: {llm_text_response}")
             messages.append({"role": "assistant", "content": llm_text_response})
 
+
             while (tool_call := check_tool_call(llm_response)):
+                # Get a response from the Tool
                 tool_response = await client.session.call_tool(tool_call.name, tool_call.input)
                 tool_result_text = tool_response.content[0].text.strip()
                 print(f"Tool Response: {tool_result_text}")
+
                 messages.append({"role": "user", "content": f"Tool result: {tool_result_text}"})
 
+                # Give the tool response to the LLM to create a final response to the User
                 llm_response = chat.messages.create(
                     model=model_name,
                     max_tokens=2048,
