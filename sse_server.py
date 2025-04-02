@@ -13,12 +13,12 @@ mcp = FastMCP("SimpleMCPServer")
 
 
 async def list_tools() -> List[Tool]:
-    """List the tools available to the LLM."""
-    return [
-        Tool( 
-	        # You will list your tools here as you write them
-        ),
-    ]
+    """List the tools available to the LLM."""
+    return [
+        Tool( 
+            # You will list your tools here as you write them
+        ),
+    ]
 
 # Start MCP server with SSE transport
 if __name__ == "__main__":
