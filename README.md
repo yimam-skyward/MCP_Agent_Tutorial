@@ -1,7 +1,7 @@
 # MCP Agent Creation Tutorial
 This repository provides the base project needed for the Model Context Protocol (MCP) Agentic Tool Creation Turtorial on Confluence.  The demonstration goes through the SErven Sent Events (SSE) approach to MCP Server implementation.  This example showcases how to create an interactive AI application that can dynamically access external tools and data sources.
 
-Please follow the tutorial to complete this project.
+Please follow ![this tutorial](https://skywarditsolutions.atlassian.net/wiki/x/AgA_WQ?atlOrigin=eyJpIjoiNWQ2MWQ3ODRhOGYwNGU2NjkzNzVhMTcyNGFkNDJhZGMiLCJwIjoiYyJ9) to complete this project.
 
 ## Prerequistes
 
